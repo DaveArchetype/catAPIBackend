@@ -1,4 +1,3 @@
-// const puppeteer = require("puppeteer");
 const axios = require("axios");
 const cheerio = require("cheerio");
 const url = "https://dinosaurpictures.org/random";
@@ -9,7 +8,6 @@ async function getRandomCat() {
   const $ = cheerio.load(data);
   let title = $("h1").text();
   let babyImage = $(`img[title=${title.split(" ")[0]}]`)[0].attribs.src;
-  console.log(babyImage);
   let babyDescription = $(".intro").text();
   let adultImage =
     "https://upload.wikimedia.org/wikipedia/commons/6/6c/Assorted_stacked_automotive_tires.jpg";
