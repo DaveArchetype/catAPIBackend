@@ -1,5 +1,6 @@
-var getRandomCat = require("./../models/getRandomCat");
 var express = require("express");
+const getRandomCat = require("./../models/getRandomCat");
+const getCatByName = require("../models/getCatByName");
 var router = express.Router();
 
 /* GET home page. */
@@ -9,6 +10,14 @@ router.get("/", async function (req, res, next) {
     success: true,
     message: `Here is your random cat!`,
     payload: await getRandomCat(),
+  });
+});
+
+router.get("/", async function (req, res, next) {
+  res.json({
+    success: true,
+    message: `Here is your random cat!`,
+    payload: await getCatByName(),
   });
 });
 
