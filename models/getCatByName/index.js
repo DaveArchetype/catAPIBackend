@@ -4,7 +4,7 @@ const url = "https://dinosaurpictures.org/";
 
 // this gets the info about a random cat
 async function getCatByName(name) {
-  const { data } = await axios.get(`${url}${name}-pictures`);
+  const { data } = await axios.get(`${url}${name}-pictures`).catch();
   const $ = cheerio.load(data);
   let title = $("h1").text();
   let babyImage = $(`img[title=${title.split(" ")[0]}]`)[0].attribs.src;
